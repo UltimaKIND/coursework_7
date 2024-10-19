@@ -12,9 +12,15 @@ class User(AbstractUser):
 
     username = None
     email = models.EmailField(unique=True, verbose_name="почта")
-    first_name = models.CharField(max_length=50, verbose_name='Имя пользователя', **NULLABLE)
-    last_name = models.CharField(max_length=50, verbose_name='Фамилия пользователя', **NULLABLE)
-    telegram_id = models.PositiveIntegerField(verbose_name='id чата телеграмм', **NULLABLE)
+    first_name = models.CharField(
+        max_length=50, verbose_name="Имя пользователя", **NULLABLE
+    )
+    last_name = models.CharField(
+        max_length=50, verbose_name="Фамилия пользователя", **NULLABLE
+    )
+    telegram_id = models.PositiveIntegerField(
+        verbose_name="id чата телеграмм", **NULLABLE
+    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

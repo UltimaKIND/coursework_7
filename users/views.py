@@ -26,4 +26,3 @@ class UserViewSet(ModelViewSet):
             self.permission_classes = [IsAuthenticated, IsSelfUser]
 
         return super().get_permissions()
-
