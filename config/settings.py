@@ -164,3 +164,11 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = os.getenv("REDIS_RESULT_BACKEND")
 CELERY_BROKER_TRANSPORT = os.getenv("CELERY_BROKER_TRANSPORT")
+TELEGRAM_BOT_ID = os.getenv("TELEGRAM_BOT_ID")
+
+CELERY_BEAT_SCHEDULE = {
+    "send_message_to_user": {
+        "task": "habits.tasks.send_message_to_user",
+        "schedule": timedelta(minutes=1),
+    }
+}
