@@ -1,8 +1,9 @@
-from datetime import timezone, datetime, timedelta
+from datetime import datetime
 
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
+
 from users.models import User
 
 # константа для полей с возможно нулевыми значениями
@@ -10,7 +11,7 @@ NULLABLE = {"blank": True, "null": True}
 
 
 class Habit(models.Model):
-    title = models.CharField(max_length=200, verbose_name='Привычка')
+    title = models.CharField(max_length=200, verbose_name="Привычка")
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="Создатель", **NULLABLE
     )
@@ -40,14 +41,14 @@ class Habit(models.Model):
         verbose_name="Продолжительность выполнения привычки",
     )
     is_published = models.BooleanField(default=True, verbose_name="Признак публичности")
-    next_date = models.DateField(verbose_name='дата следующего выполнения привычки', default=datetime.today().date())
-
+    next_date = models.DateField(
+        verbose_name="дата следующего выполнения привычки",
+        default=datetime.today().date(),
+    )
 
     class Meta:
-        verbose_name = 'Привычка'
-        verbose_name_plural = 'Привычки'
+        verbose_name = "Привычка"
+        verbose_name_plural = "Привычки"
 
     def __str__(self):
         return self.title
-
-

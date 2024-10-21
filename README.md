@@ -10,6 +10,7 @@
 ## Технологии
 - [Django](https://www.djangoproject.com/)
 - [django-res-framework](https://www.django-rest-framework.org/)
+- [django-cors-headers](https://pypi.org/project/django-cors-headers/)
 - [celery](https://docs.celeryq.dev/en/stable/)
 - [requests](https://pypi.org/project/requests/)
 
@@ -42,5 +43,12 @@ $ python3 manage.py runserver
 
 Наш проект покрыт тестами. Для их запуска выполните команду:
 ```sh
-$
+$ python3 manage.py test
+```
+Для просмотра покрытия тестами:
+```sh
+$ coverage run --source='.' manage.py test
+```
+```sh
+$ coverage report
 ```

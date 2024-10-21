@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from habits.models import Habit
 
 
@@ -7,6 +8,7 @@ class HabitAdmin(admin.ModelAdmin):
     """
     регистрация модели Habit в панели администратора
     """
+
     list_display = (
         "id",
         "title",

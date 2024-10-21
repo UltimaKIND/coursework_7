@@ -62,11 +62,10 @@ class HabitsViewSet(viewsets.ModelViewSet):
         """
         Добавление владельца к Habit при создании
         """
-        if self.request.data.get('time'):
-            time = t.fromisoformat(self.request.data.get('time'))
+        if self.request.data.get("time"):
+            time = t.fromisoformat(self.request.data.get("time"))
             serializer.save(user=self.request.user, time=time)
         serializer.save(user=self.request.user)
-
 
     def get_permissions(self):
         if self.action in ["retrieve", "update", "partial_update", "destroy"]:
@@ -78,6 +77,7 @@ class HabitsViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(queryset, many=True)
 
         return Response(serializer.data)
+
 
 class PublicHabitsListAPIView(ListAPIView):
     queryset = Habit.objects.filter(is_published=True)

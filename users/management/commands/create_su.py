@@ -19,6 +19,6 @@ class Command(BaseCommand):
         if tg_id:
             user.telegram_id = tg_id
         else:
-            print('wrong input')
+            print("wrong input")
 
         user.save()

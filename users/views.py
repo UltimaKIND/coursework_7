@@ -1,9 +1,8 @@
-from rest_framework import filters, status
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from users.models import User
-from users.permissions import IsModer, IsOwner, IsSelfUser
+from users.permissions import IsSelfUser
 from users.serializers import UserSerializer
 
 
